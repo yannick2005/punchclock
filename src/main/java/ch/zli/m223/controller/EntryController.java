@@ -25,8 +25,8 @@ public class EntryController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "List all Entries", description = "Returns all entries.")
-    public List<Entry> list() {
+    @Operation(summary = "Index all Entries", description = "Returns all entries.")
+    public List<Entry> index() {
         return entryService.findAll();
     }
 
