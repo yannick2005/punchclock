@@ -10,3 +10,19 @@ Punch Clock ist ein Zeiterfassungssystem, welches mit Quarkus entwickelt wird.
 1. Klone (clone) das Projekt lokal, um damit arbeiten zu können.
 1. Öffne das Projekt mit Visual Studio Code.
 1. Öffne das Projekt im Entwicklungscontainer.
+1. Starte das Projekt mit dem Kommando `Quarkus: Debug current Quarkus Project`
+1. Probiere die Client-Applikation unter http://localhost:8080 aus.
+
+## Datenbank
+
+Die Daten werden in einer PostgreSQL-Datenbank gespeichert. In der Entwicklungsumgebung wird diese in der [docker-compose-yml](./.devcontainer/docker-compose.yml) konfiguriert.
+
+### Datenbankadministration
+
+Über http://localhost:5050 ist PgAdmin4 erreichbar. Damit lässt sich die Datenbank komfortabel verwalten. Der Benutzername lautet `zli@example.com` und das Passwort `zli*123`. Die Verbindung zur PostgreSQL-Datenbank muss zuerst mit folgenden Daten konfiguriert werden:
+ - Host name/address: `db`
+ - Port: `5432`
+ - Maintenance database: `postgres`
+ - Username: `postgres`
+ - Password: `postgres`
+
