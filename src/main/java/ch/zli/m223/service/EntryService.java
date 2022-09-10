@@ -14,9 +14,6 @@ public class EntryService {
     @Inject
     private EntityManager entityManager;
 
-    public EntryService() {
-    }
-
     @Transactional
     public Entry createEntry(Entry entry) {
         entityManager.persist(entry);
