@@ -25,7 +25,7 @@ public class EntryController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "Index all Entries", description = "Returns all entries.")
+    @Operation(summary = "Index all Entries.", description = "Returns a list of all entries.")
     public List<Entry> index() {
         return entryService.findAll();
     }
@@ -33,7 +33,7 @@ public class EntryController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @Operation(summary = "Add a new Entry", description = "Creates a new entry.")
+    @Operation(summary = "Creates a new entry.", description = "Creates a new entry and returns the newly added entry.")
     public Entry create(Entry entry) {
        return entryService.createEntry(entry);
     }
