@@ -6,7 +6,6 @@ volumes:
     null
 services:
   app:
-    container_name: javadev
     build:
       context: .
       dockerfile: Dockerfile
@@ -26,7 +25,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
-      POSTGRES_HOSTNAME: postgresdb
+      POSTGRES_HOSTNAME: db
 
     volumes:
       - ..:/workspace:cached
@@ -43,7 +42,6 @@ services:
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   db:
-    container_name: postgresdb
     image: postgres:latest
     restart: unless-stopped
     volumes:
@@ -57,7 +55,6 @@ services:
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   pgadmin:
-    container_name: postgresadmin
     image: dpage/pgadmin4
     restart: unless-stopped
     ports:
