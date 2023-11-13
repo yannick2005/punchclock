@@ -3,6 +3,10 @@ package ch.zli.m223.model;
 import javax.persistence.*;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.Fetch;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.time.LocalDateTime;
 
@@ -18,6 +22,19 @@ public class Entry {
 
   @Column(nullable = false)
   private LocalDateTime checkOut;
+
+  @ManyToOne(optional = true)
+  @Fetch(FetchMode.JOIN)
+  private Category category;
+
+  @ManyToMany
+  @JoinTable(name = "entry_tags", joinColumns = @JoinColumn(name = "entry_id"), inverseJoinColumns = @JoinColumn(name = "tag_entry"))
+
+  @JsonIgnoreProperties("entries")
+
+  public void setCategory(Category category) {
+    this.category = category;
+  }
 
   public Long getId() {
     return id;

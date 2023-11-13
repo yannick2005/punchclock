@@ -19,10 +19,18 @@ public class EntryService {
     @Inject
     private EntityManager entityManager;
 
+    public Boolean isValid(Entry entry) {
+        return entry.getCheckIn().isBefore(entry.getCheckOut());
+    }
+
     @Transactional
     public Entry createEntry(Entry entry) {
-        entityManager.persist(entry);
-        return entry;
+        if (isValid(entry)) {
+            entityManager.persist(entry);
+            return entry;
+        }
+        // Handle validation error, for example, throw an exception or return null.
+        throw new IllegalArgumentException("CheckOut must be after CheckIn");
     }
 
     public List<Entry> findAll() {
@@ -32,8 +40,11 @@ public class EntryService {
 
     @Transactional
     public Entry updateEntry(Long id, Entry entry) {
-        entry.setId(id);
-        return entityManager.merge(entry);
+        if (isValid(entry)){
+            entry.setId(id);
+            return entityManager.merge(entry);
+        }
+        throw new IllegalArgumentException("CheckOut must be after CheckIn");
     }
 
     @Transactional
