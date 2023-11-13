@@ -47,7 +47,7 @@ public class EntryController {
     @PATCH
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Entry put(@PathParam("id") Long id, Entry entry){
+    public Entry patch(@PathParam("id") Long id, Entry entry){
         return entryService.updateEntry(id, entry);
     }
 
