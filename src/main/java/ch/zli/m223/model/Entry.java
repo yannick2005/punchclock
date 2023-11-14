@@ -30,18 +30,10 @@ public class Entry {
   private Category category;
 
   @ManyToMany
-  @JoinTable(
-    name = "entry_tags", 
-    joinColumns = @JoinColumn(name = "entry_id"),
-    inverseJoinColumns = @JoinColumn(name = "tag_id")
-  )
+  @JoinTable(name = "entry_tags", joinColumns = @JoinColumn(name = "entry_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
   @JsonIgnoreProperties("entries")
   @Fetch(FetchMode.JOIN)
   private Set<Tag> tags;
-
-  public void setCategory(Category category) {
-    this.category = category;
-  }
 
   public Long getId() {
     return id;
@@ -65,5 +57,21 @@ public class Entry {
 
   public void setCheckOut(LocalDateTime checkOut) {
     this.checkOut = checkOut;
+  }
+
+  public Category getCategory() {
+    return category;
+  }
+
+  public void setCategory(Category category) {
+    this.category = category;
+  }
+
+  public Set<Tag> getTags() {
+    return tags;
+  }
+
+  public void setTag(Set<Tag> tags) {
+    this.tags = tags;
   }
 }

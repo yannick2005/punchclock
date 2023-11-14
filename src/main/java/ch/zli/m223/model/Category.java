@@ -40,4 +40,12 @@ public class Category {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public Set<Entry> getEntries() {
+        return entries;
+    }
+
+    public void setEntries(Set<Entry> entries) {
+        this.entries = entries;
+    }
 }
