@@ -24,7 +24,7 @@ public class Entry {
   @Column(nullable = false)
   private LocalDateTime checkOut;
 
-  @ManyToOne(optional = true)
+  @ManyToOne(optional = false)
   @Fetch(FetchMode.JOIN)
   private Category category;
 

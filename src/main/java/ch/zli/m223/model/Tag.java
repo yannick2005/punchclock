@@ -3,6 +3,7 @@ package ch.zli.m223.model;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +15,7 @@ import org.hibernate.annotations.FetchMode;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@Entity
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
