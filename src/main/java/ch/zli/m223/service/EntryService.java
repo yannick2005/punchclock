@@ -45,14 +45,8 @@ public class EntryService {
 
     @Transactional
     public Entry deleteEntry(Long id) {
-        List<Entry> entriesList = findAll();
-
-        for (Entry entry : entriesList) {
-            if (entry.getId() == id) {
-                entityManager.remove(entry);
-                return entry;
-            }
-        }
-        return null;
+        Entry entry = entityManager.find(Entry.class, id);
+        entityManager.remove(entry);
+        return entry;
     }
 }
