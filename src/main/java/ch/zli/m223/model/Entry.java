@@ -1,6 +1,7 @@
 package ch.zli.m223.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.FetchMode;
@@ -28,9 +29,14 @@ public class Entry {
   private Category category;
 
   @ManyToMany
-  @JoinTable(name = "entry_tags", joinColumns = @JoinColumn(name = "entry_id"), inverseJoinColumns = @JoinColumn(name = "tag_entry"))
-
+  @JoinTable(
+    name = "entry_tags", 
+    joinColumns = @JoinColumn(name = "entry_id"),
+    inverseJoinColumns = @JoinColumn(name = "tag_id")
+  )
   @JsonIgnoreProperties("entries")
+  @Fetch(FetchMode.JOIN)
+  private Set<Tag> tags;
 
   public void setCategory(Category category) {
     this.category = category;

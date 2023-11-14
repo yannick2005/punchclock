@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.Fetch;
@@ -23,13 +23,17 @@ public class Tag {
     @Column(nullable = false)
     private String title;
 
-    @OneToMany(mappedBy = "tag")
-    @JsonIgnoreProperties("tag")
+    @ManyToMany(mappedBy = "tags")
+    @JsonIgnoreProperties("tags")
     @Fetch(FetchMode.JOIN)
     private Set<Entry> entries;
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
