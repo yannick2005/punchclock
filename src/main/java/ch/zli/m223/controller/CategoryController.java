@@ -36,7 +36,7 @@ public class CategoryController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @Operation(summary = "Creates a new category", description = "Createa a new category")
+    @Operation(summary = "Creates a new category", description = "Create a new category")
     public Category craete(Category category) {
         return categoryService.createCategory(category);
     }
