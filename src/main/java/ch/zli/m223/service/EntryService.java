@@ -21,7 +21,7 @@ public class EntryService {
     @Transactional
     public Entry createEntry(Entry entry) {
         if (isValid(entry)) {
-            entityManager.persist(entry);
+            entityManager.merge(entry);
             return entry;
         }
         // Handle validation error, for example, throw an exception or return null.
