@@ -1,7 +1,8 @@
 package ch.zli.m223.model;
 
-import javax.persistence.*;
 import java.util.Set;
+
+import javax.persistence.*;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.FetchMode;

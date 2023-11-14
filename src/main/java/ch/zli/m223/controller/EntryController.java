@@ -38,13 +38,13 @@ public class EntryController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(summary = "Creates a new entry.", description = "Creates a new entry and returns the newly added entry.")
     public Entry create(Entry entry) {
-       return entryService.createEntry(entry);
+        return entryService.createEntry(entry);
     }
 
     @PATCH
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Entry patch(@PathParam("id") Long id, Entry entry){
+    public Entry patch(@PathParam("id") Long id, Entry entry) {
         return entryService.updateEntry(id, entry);
     }
 
